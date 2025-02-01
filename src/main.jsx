@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./components/App/App";
-import { persistor, store } from "./redux/store";
+import { store } from "./redux/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
@@ -12,3 +12,4 @@ createRoot(document.getElementById("root")).render(
     </PersistGate>
   </Provider>
 );
+// persistor,
