@@ -1,18 +1,16 @@
 import { createSelector, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { deleteContact, addContact, fetchContacts } from "./contactsOps";
-// import { selectFilter } from "../redux/filtersSlice";
-import { selectFilteredContacts } from "../redux/contactsSlice";
+import { selectFilter } from "../redux/filtersSlice";
 
 const initialState = {
   items: [],
   loading: false,
   error: null,
 };
-// const contacts = useSelector(selectFilteredContacts);
+
 const slice = createSlice({
   name: "contacts",
   initialState,
-
   extraReducers: (builder) => {
     builder
       .addCase(fetchContacts.fulfilled, (state, { payload }) => {
@@ -26,7 +24,6 @@ const slice = createSlice({
           (item) => item.id !== actions.payload.id
         );
       })
-
       .addMatcher(
         isAnyOf(
           fetchContacts.pending,
